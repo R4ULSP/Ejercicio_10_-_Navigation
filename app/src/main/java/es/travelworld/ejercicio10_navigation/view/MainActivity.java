@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity implements OnBoardingFragmen
 
     private ActivityMainBinding binding;
 
-    //A
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
