@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.travelworld.ejercicio10_navigation.R;
+import com.travelworld.ejercicio10_navigation.databinding.ItemlayoutCarListBinding;
 
 import es.travelworld.ejercicio10_navigation.domain.CarItem;
 

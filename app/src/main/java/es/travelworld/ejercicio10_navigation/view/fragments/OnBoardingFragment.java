@@ -52,6 +52,7 @@ public class OnBoardingFragment extends Fragment {
         binding.buttonNext.setOnClickListener(view -> listener.onBoardingNextButton());
     }
 
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);

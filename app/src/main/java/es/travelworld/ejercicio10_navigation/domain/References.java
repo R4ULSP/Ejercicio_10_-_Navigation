@@ -22,6 +22,7 @@ public abstract class References {
     public static final int NUM_PAGES_HOME = 4;
 
     public static final String PRUEBAS = "---PRUEBAS";
+    public static final String DESTINATION_FRAGMENT = "destinationFragment";
 
     private References() {
         //Private constructor
