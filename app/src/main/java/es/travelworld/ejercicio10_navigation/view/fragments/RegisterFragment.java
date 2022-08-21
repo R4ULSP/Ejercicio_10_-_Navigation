@@ -1,5 +1,7 @@
 package es.travelworld.ejercicio10_navigation.view.fragments;
 
+import static es.travelworld.ejercicio10_navigation.domain.References.PRUEBAS;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,8 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
@@ -33,11 +38,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
 
     private FragmentRegisterBinding binding;
     private String[] ages;
-    private OnClickItemRegisterFragment listener;
-
-    public interface OnClickItemRegisterFragment {
-        void registerJoinButton();
-    }
 
     public RegisterFragment() {
         // Required empty public constructor
@@ -168,11 +168,15 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
             user.setLastname(Objects.requireNonNull(binding.registerInputLastname.getText()).toString());
             user.setAgeGroup(binding.registerInputAge.getText().toString());
 
-            Bundle result = new Bundle();
+            /*Bundle result = new Bundle();
             result.putParcelable(References.KEY_USER, user);
-            getParentFragmentManager().setFragmentResult(References.FRAGMENT_RESULT, result);
+            getParentFragmentManager().setFragmentResult(References.FRAGMENT_RESULT, result);*/
 
-            listener.registerJoinButton();
+
+            Log.i(PRUEBAS, user.toString() + " en register" );
+            RegisterFragmentDirections.ToLoginFragmentFromRegisterFragment action = RegisterFragmentDirections.toLoginFragmentFromRegisterFragment().setArgUser(user);
+            NavHostFragment.findNavController(RegisterFragment.this).navigate(action);
+            //listener.registerJoinButton();
         }
     }
 
@@ -190,22 +194,5 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-
-    /**
-     * Inicializa el listener con el contexto recibido
-     */
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof OnClickItemRegisterFragment) {
-            listener = (OnClickItemRegisterFragment) context;
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
     }
 }

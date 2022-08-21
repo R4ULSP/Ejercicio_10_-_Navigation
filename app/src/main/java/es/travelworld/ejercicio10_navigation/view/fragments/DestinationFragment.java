@@ -1,11 +1,9 @@
 package es.travelworld.ejercicio10_navigation.view.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.view.LayoutInflater;
@@ -19,12 +17,6 @@ import es.travelworld.ejercicio10_navigation.domain.References;
 public class DestinationFragment extends Fragment {
 
     private FragmentDestinationBinding binding;
-    private StartDestinationFragmentStateAdapter fragmentStateAdapter;
-    private DestinationViewPagerManager listener;
-
-    public interface DestinationViewPagerManager{
-        void nextPage();
-    }
 
     public DestinationFragment() {
         // Required empty public constructor
@@ -35,18 +27,13 @@ public class DestinationFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         binding = FragmentDestinationBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        fragmentStateAdapter = new StartDestinationFragmentStateAdapter(this);
+        StartDestinationFragmentStateAdapter fragmentStateAdapter = new StartDestinationFragmentStateAdapter(this);
         binding.viewPager.setAdapter(fragmentStateAdapter);
 
         return view;
@@ -54,20 +41,6 @@ public class DestinationFragment extends Fragment {
 
     public void nextPage(){
         binding.viewPager.setCurrentItem(binding.viewPager.getCurrentItem() + 1);
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof DestinationFragment.DestinationViewPagerManager) {
-            listener = (DestinationFragment.DestinationViewPagerManager) context;
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
     }
 
     private class StartDestinationFragmentStateAdapter extends FragmentStateAdapter {

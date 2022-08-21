@@ -1,6 +1,5 @@
 package es.travelworld.ejercicio10_navigation.view.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,12 +15,6 @@ public class OnBoardingFragment extends Fragment {
 
     private FragmentOnboardingBinding binding;
 
-    private OnClickItemOnBoardingFragment listener;
-
-    public interface OnClickItemOnBoardingFragment {
-        void onBoardingNextButton();
-    }
-
     public OnBoardingFragment() {
         // Required empty public constructor
     }
@@ -29,12 +22,6 @@ public class OnBoardingFragment extends Fragment {
 
     public static OnBoardingFragment newInstance() {
         return new OnBoardingFragment();
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -49,21 +36,16 @@ public class OnBoardingFragment extends Fragment {
     }
 
     private void setListeners() {
-        binding.buttonNext.setOnClickListener(view -> listener.onBoardingNextButton());
+        binding.buttonNext.setOnClickListener(view -> nextPage());
+
     }
 
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof OnClickItemOnBoardingFragment) {
-            listener = (OnClickItemOnBoardingFragment) context;
+    private void nextPage() {
+        DestinationFragment destinationFragment = ((DestinationFragment)OnBoardingFragment.this.getParentFragment());
+        if(destinationFragment != null) {
+            destinationFragment.nextPage();
         }
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
-    }
+
 }

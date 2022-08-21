@@ -1,15 +1,22 @@
 package es.travelworld.ejercicio10_navigation.view.fragments;
 
+import static es.travelworld.ejercicio10_navigation.domain.References.PRUEBAS;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -30,8 +37,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     public interface OnClickItemLoginFragment {
         void loginButton(User user, String code);
-
-        void loginNewAccountButton();
     }
 
     public LoginFragment() {
@@ -45,12 +50,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getParentFragmentManager().setFragmentResultListener(References.FRAGMENT_RESULT, this, (requestKey, result) -> {
+        /*getParentFragmentManager().setFragmentResultListener(References.FRAGMENT_RESULT, this, (requestKey, result) -> {
             if (result.getParcelable(References.KEY_USER) != null) {
                 user = result.getParcelable(References.KEY_USER);
                 Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
             }
-        });
+        });*/
+        user = LoginFragmentArgs.fromBundle(getArguments()).getArgUser();
     }
 
 
@@ -60,6 +66,14 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+
+        if(user != null){
+            Log.i(PRUEBAS, user.toString());
+            Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(getContext(),"Es nulo",Toast.LENGTH_SHORT).show();
+        }
 
         setListeners();
         return view;
@@ -127,7 +141,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         if (binding.loginForgotPasswordButton.equals(view)) {
             Snackbar.make(binding.getRoot(), R.string.wip_feature, BaseTransientBottomBar.LENGTH_LONG).show();
         } else if (binding.loginNewAccountButton.equals(view)) {
-            listener.loginNewAccountButton();
+            NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.to_registerFragment);
         } else if (binding.loginButton.equals(view)) {
             login();
         }

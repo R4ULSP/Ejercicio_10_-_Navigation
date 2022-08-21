@@ -18,8 +18,6 @@ public class MatchFragment extends Fragment {
     private OnClickItemMatchFragment listener;
 
     public interface OnClickItemMatchFragment {
-        void matchNextButton();
-
         void matchSkipButton();
     }
 
@@ -32,11 +30,6 @@ public class MatchFragment extends Fragment {
         return new MatchFragment();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -49,8 +42,15 @@ public class MatchFragment extends Fragment {
     }
 
     private void setListeners() {
-        binding.matchButtonNext.setOnClickListener(view -> listener.matchNextButton());
+        binding.matchButtonNext.setOnClickListener(view -> nextPage());
         binding.matchButtonSkip.setOnClickListener(view -> listener.matchSkipButton());
+    }
+
+    private void nextPage() {
+        DestinationFragment destinationFragment = ((DestinationFragment)MatchFragment.this.getParentFragment());
+        if(destinationFragment != null) {
+            destinationFragment.nextPage();
+        }
     }
 
     @Override

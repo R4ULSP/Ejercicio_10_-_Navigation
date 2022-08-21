@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/destinationFragment">
+
+    <!-- TODO Hacer transiciones -->
+
+    <fragment
+        android:id="@+id/destinationFragment"
+        android:name="es.travelworld.ejercicio10_navigation.view.fragments.DestinationFragment"
+        android:label="fragment_destination"
+        tools:layout="@layout/fragment_destination" >
+        <action
+            android:id="@+id/to_loginFragment_from_destinationFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="es.travelworld.ejercicio10_navigation.view.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <argument
+            android:name="arg_user"
+            app:argType="es.travelworld.ejercicio10_navigation.domain.User"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="es.travelworld.ejercicio10_navigation.view.fragments.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/to_loginFragment_from_registerFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>
