@@ -32,5 +32,11 @@ bapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/adapter/
 eapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/adapter/CarListViewHolder.java,d\0\d021d94bec47c75791b97d914f07c8c7ca95b865
 ~
 Napp/src/main/java/es/travelworld/ejercicio10_navigation/domain/References.java,8\e\8e556f5a1d695d4b0d870231d8ecbc08888b2d00
-~
-Napp/src/main/java/es/travelworld/ejercicio10_navigation/view/HomeActivity.java,d\0\d0b6cfc4c7e050e35d12de4eaae53df9381b564c
+x
+Happ/src/main/java/es/travelworld/ejercicio10_navigation/domain/User.java,c\b\cb197f4454c1f5b038b121ca3062c2c53398d829
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e

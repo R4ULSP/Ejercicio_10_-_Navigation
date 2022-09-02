@@ -1,7 +1,5 @@
 package es.travelworld.ejercicio10_navigation.view;
 
-
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -26,7 +24,6 @@ public class LoginActivity extends AppCompatActivity implements MatchFragment.On
 
     private ActivityLoginBinding binding;
     private NavController navController;
-    private AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +37,7 @@ public class LoginActivity extends AppCompatActivity implements MatchFragment.On
     private void setUpNavigation() {
         setSupportActionBar(binding.materialToolbar); //Establecer la action bar
         navController = Navigation.findNavController(this, R.id.login_fragment_frame);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build(); //Ceder la parte de la actionBar a la appBar
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build(); //Ceder la parte de la actionBar a la appBar
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     }
 

@@ -10,12 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -50,12 +47,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*getParentFragmentManager().setFragmentResultListener(References.FRAGMENT_RESULT, this, (requestKey, result) -> {
-            if (result.getParcelable(References.KEY_USER) != null) {
-                user = result.getParcelable(References.KEY_USER);
-                Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
-            }
-        });*/
+
         user = LoginFragmentArgs.fromBundle(getArguments()).getArgUser();
     }
 
@@ -70,9 +62,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         if(user != null){
             Log.i(PRUEBAS, user.toString());
             Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
-        }
-        else{
-            Toast.makeText(getContext(),"Es nulo",Toast.LENGTH_SHORT).show();
         }
 
         setListeners();
