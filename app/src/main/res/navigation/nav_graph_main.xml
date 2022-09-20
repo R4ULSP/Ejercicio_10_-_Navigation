@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="es.travelworld.ejercicio10_navigation.view.fragments.MainFragment"
-        android:label="fragment_main"
+        android:label="Main Menu"
         tools:layout="@layout/fragment_main">
-        <argument
+        <!--<argument
             android:name="arg_user"
             android:defaultValue="@null"
             app:argType="es.travelworld.ejercicio10_navigation.domain.User"
-            app:nullable="true" />
+            app:nullable="true" />-->
     </fragment>
 </navigation>

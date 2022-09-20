@@ -31,12 +31,11 @@ public class DestinationFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentDestinationBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
 
         StartDestinationFragmentStateAdapter fragmentStateAdapter = new StartDestinationFragmentStateAdapter(this);
         binding.viewPager.setAdapter(fragmentStateAdapter);
 
-        return view;
+        return binding.getRoot();
     }
 
     public void nextPage(){

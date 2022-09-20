@@ -36,8 +36,6 @@ Happ/src/main/java/es/travelworld/ejercicio10_navigation/domain/User.java,c\b\c
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 ‰
 Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MatchFragment.java,3\6\369229bbc0e1b0eec51262652c12bbfbb7aaacb4
 Œ
@@ -46,7 +44,3 @@ Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MatchFra
 Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/LoginFragment.java,d\a\dab398fb89f03c66b624bd43786f6a034ff12400
 Œ
 \app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/RegisterFragment.java,3\6\3686751fe832c04ea64622419abd85e011a6d4ba
-Ž
-^app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/OnBoardingFragment.java,2\b\2bca6b43e26ebd86b1067632274aad4f04d331a6
-
-_app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/DestinationFragment.java,5\e\5ec1901f05a9b278e244077ac551e842c24559b3

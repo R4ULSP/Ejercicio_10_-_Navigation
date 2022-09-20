@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        user = getIntent().getParcelableExtra(References.KEY_USER);
+        //user = getIntent().getParcelableExtra(References.KEY_USER);
 
 
         setupNavigation();

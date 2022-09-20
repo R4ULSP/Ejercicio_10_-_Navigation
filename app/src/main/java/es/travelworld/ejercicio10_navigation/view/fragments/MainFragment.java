@@ -1,5 +1,7 @@
 package es.travelworld.ejercicio10_navigation.view.fragments;
 
+import static es.travelworld.ejercicio10_navigation.domain.References.PRUEBAS;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,6 +10,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +43,9 @@ public class MainFragment extends Fragment {
         binding = FragmentMainBinding.inflate(inflater,container,false);
 
         setUpTabs();
+
+        MainFragmentFragmentStateAdapter mainFragmentFragmentStateAdapter = new MainFragmentFragmentStateAdapter(this);
+        binding.homeViewPager.setAdapter(mainFragmentFragmentStateAdapter);
 
         return binding.getRoot();
     }
@@ -165,14 +171,17 @@ public class MainFragment extends Fragment {
         public Fragment createFragment(int position) {
             Fragment fragment;
 
-            if (position == 0) {
-                fragment = startHomeFragment();
-            } else if (position == 1) {
-                fragment = startCarFragment();
-            } else {
-                fragment = startPositionFragment(position);
+            switch (position) {
+                case 0:
+                    fragment = startHomeFragment();
+                    break;
+                case 1:
+                    fragment = startCarFragment();
+                    break;
+                default:
+                    fragment = startPositionFragment(position);
+                    break;
             }
-
             return fragment;
         }
 
@@ -184,9 +193,14 @@ public class MainFragment extends Fragment {
         private Fragment startHomeFragment() {
             HomeFragment fragment = (HomeFragment) getParentFragmentManager().findFragmentByTag(References.HOME_FRAGMENT);
 
+            Log.d(PRUEBAS,"Estoy en la posición ");
+
             if (fragment != null) {
+                Log.d(PRUEBAS,"Nulo ");
+
                 return fragment;
             } else {
+                Log.d(PRUEBAS,"Devuelvo ");
                 return HomeFragment.newInstance();
             }
         }
