@@ -12,6 +12,10 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.google.android.material.tabs.TabLayout;
@@ -33,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
     private User user;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,120 +47,21 @@ public class HomeActivity extends AppCompatActivity {
 
         user = getIntent().getParcelableExtra(References.KEY_USER);
 
+
+        setupNavigation();
+
+
+    }
+
+    private void setupNavigation() {
         setSupportActionBar(binding.toolbar);
-
-        setUpTabs();
+        navController = Navigation.findNavController(this,R.id.main_fragment_frame);
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration);
     }
 
-    private void setUpTabs() {
-        FragmentStateAdapter fragmentStateAdapter = new HomeActivityFragmentStateAdapter(this);
-        binding.homeViewPager.setAdapter(fragmentStateAdapter);
+    //TODO mover a un fragment con el viewPager2
 
-        setCustomTabs();
-
-        setTabsListeners();
-
-        initializeIconColors();
-
-        Objects.requireNonNull(binding.tabLayout.getTabAt(0)).select();
-    }
-
-    private void initializeIconColors() {
-        setIconColorBlack(Objects.requireNonNull(Objects.requireNonNull(binding.tabLayout.getTabAt(0)).getCustomView()).findViewById(R.id.iconCamera));
-        setIconColorBlack(Objects.requireNonNull(Objects.requireNonNull(binding.tabLayout.getTabAt(1)).getCustomView()).findViewById(R.id.iconCar));
-        setIconColorBlack(Objects.requireNonNull(Objects.requireNonNull(binding.tabLayout.getTabAt(2)).getCustomView()).findViewById(R.id.iconTerrain));
-        setIconColorBlack(Objects.requireNonNull(Objects.requireNonNull(binding.tabLayout.getTabAt(3)).getCustomView()).findViewById(R.id.iconFace));
-    }
-
-    private void setTabsListeners() {
-        binding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                int position = tab.getPosition();
-                AppCompatImageView imageView;
-                switch (position) {
-                    case 0:
-                        imageView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.iconCamera); //Localizacion del imageview
-                        setIconColorWhite(imageView);
-                        break;
-                    case 1:
-                        imageView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.iconCar); //Localizacion del imageview
-                        setIconColorWhite(imageView);
-                        break;
-                    case 2:
-                        imageView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.iconTerrain); //Localizacion del imageview
-                        setIconColorWhite(imageView);
-                        break;
-                    case 3:
-                        imageView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.iconFace); //Localizacion del imageview
-                        setIconColorWhite(imageView);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                int position = tab.getPosition();
-                AppCompatImageView imageView;
-                switch (position) {
-                    case 0:
-                        imageView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.iconCamera); //Localizacion del imageview
-                        setIconColorBlack(imageView);
-                        break;
-                    case 1:
-                        imageView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.iconCar); //Localizacion del imageview
-                        setIconColorBlack(imageView);
-                        break;
-                    case 2:
-                        imageView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.iconTerrain); //Localizacion del imageview
-                        setIconColorBlack(imageView);
-                        break;
-                    case 3:
-                        imageView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.iconFace); //Localizacion del imageview
-                        setIconColorBlack(imageView);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                onTabSelected(tab);
-            }
-        });
-    }
-
-    private void setCustomTabs() {
-        new TabLayoutMediator(binding.tabLayout, binding.homeViewPager, ((tab, position) -> {
-            switch (position) {
-                case 0:
-                    tab.setCustomView(R.layout.tab_camera);
-                    break;
-                case 1:
-                    tab.setCustomView(R.layout.tab_car);
-                    break;
-                case 2:
-                    tab.setCustomView(R.layout.tab_terrain);
-                    break;
-                case 3:
-                    tab.setCustomView(R.layout.tab_face);
-                    break;
-                default:
-                    break;
-            }
-        })).attach();
-    }
-
-    private void setIconColorWhite(AppCompatImageView imageView) {
-        imageView.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.white));
-    }
-
-    private void setIconColorBlack(AppCompatImageView imageView) {
-        imageView.setColorFilter(ContextCompat.getColor(getBaseContext(), R.color.black));
-    }
 
 
     @Override
@@ -189,62 +95,5 @@ public class HomeActivity extends AppCompatActivity {
         finish();
     }
 
-    private class HomeActivityFragmentStateAdapter extends FragmentStateAdapter {
-        public HomeActivityFragmentStateAdapter(HomeActivity homeActivity) {
-            super(homeActivity);
 
-        }
-
-
-        @NonNull
-        @Override
-        public Fragment createFragment(int position) {
-            Fragment fragment;
-
-            if (position == 0) {
-                fragment = startHomeFragment();
-            } else if (position == 1) {
-                fragment = startCarFragment();
-            } else {
-                fragment = startPositionFragment(position);
-            }
-
-            return fragment;
-        }
-
-        @Override
-        public int getItemCount() {
-            return References.NUM_PAGES_HOME;
-        }
-
-        private Fragment startHomeFragment() {
-            HomeFragment fragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag(References.HOME_FRAGMENT);
-
-            if (fragment != null) {
-                return fragment;
-            } else {
-                return HomeFragment.newInstance(user);
-            }
-        }
-
-        private Fragment startPositionFragment(int position) {
-            PositionFragment positionFragment = (PositionFragment) getSupportFragmentManager().findFragmentByTag(References.POSITION_FRAGMENT);
-
-            if (positionFragment != null) {
-                return positionFragment;
-            } else {
-                return PositionFragment.newInstance(position);
-            }
-        }
-
-        private Fragment startCarFragment() {
-            CarFragment carFragment = (CarFragment) getSupportFragmentManager().findFragmentByTag(References.CAR_FRAGMENT);
-
-            if (carFragment != null) {
-                return carFragment;
-            } else {
-                return CarFragment.newInstance();
-            }
-        }
-    }
 }

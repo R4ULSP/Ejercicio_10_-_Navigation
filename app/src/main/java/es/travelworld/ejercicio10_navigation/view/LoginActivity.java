@@ -34,6 +34,8 @@ public class LoginActivity extends AppCompatActivity implements MatchFragment.On
         setUpNavigation();
     }
 
+    //TODO: Gestionar BackStack
+
     private void setUpNavigation() {
         setSupportActionBar(binding.materialToolbar); //Establecer la action bar
         navController = Navigation.findNavController(this, R.id.login_fragment_frame);

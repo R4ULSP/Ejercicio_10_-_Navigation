@@ -26,11 +26,11 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static HomeFragment newInstance(User receivedUser) {
+    public static HomeFragment newInstance(/*User receivedUser*/) {
         HomeFragment homeFragment = new HomeFragment();
-        Bundle bundle = new Bundle();
+        /*Bundle bundle = new Bundle();
         bundle.putParcelable(References.KEY_USER, receivedUser);
-        homeFragment.setArguments(bundle);
+        homeFragment.setArguments(bundle);*/
         return homeFragment;
     }
 
@@ -46,9 +46,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
 
-        Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
-        return view;
+        //Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
+
+        return binding.getRoot();
     }
 }

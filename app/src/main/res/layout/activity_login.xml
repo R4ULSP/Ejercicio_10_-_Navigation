@@ -21,6 +21,7 @@
             app:titleTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!--TODO Cambiar por FragmentContainerView-->
     <fragment
         android:id="@+id/login_fragment_frame"
         android:name="androidx.navigation.fragment.NavHostFragment"

@@ -24,8 +24,6 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 á
 Wapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/CarFragment.java,4\c\4c072b0c14775124d6dece27a60c1e9a2f11fe2f
-à
-Xapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/HomeFragment.java,6\0\604328e4904aa57b9fbee62ba365268cbaf3a34a
 í
 bapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/adapter/CarListAdapter.java,c\e\ce2b6c59c3e859c90d9390312ead1f7a841ed67d
 ï
@@ -40,3 +38,15 @@ Happ/src/main/java/es/travelworld/ejercicio10_navigation/domain/User.java,c\b\c
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+â
+Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MatchFragment.java,3\6\369229bbc0e1b0eec51262652c12bbfbb7aaacb4
+å
+\app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/RoommateFragment.java,e\c\eccb663eae3b93d10cc71cf6205e26f2c73b99ce
+â
+Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/LoginFragment.java,d\a\dab398fb89f03c66b624bd43786f6a034ff12400
+å
+\app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/RegisterFragment.java,3\6\3686751fe832c04ea64622419abd85e011a6d4ba
+é
+^app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/OnBoardingFragment.java,2\b\2bca6b43e26ebd86b1067632274aad4f04d331a6
+è
+_app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/DestinationFragment.java,5\e\5ec1901f05a9b278e244077ac551e842c24559b3
