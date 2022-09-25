@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="es.travelworld.ejercicio10_navigation.view.fragments.MainFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,11 +21,10 @@
             app:tabPaddingEnd="0dp"
             app:tabPaddingStart="0dp" />
 
-
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/homeViewPager"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tabLayout"
             app:layout_constraintStart_toStartOf="parent" />
 

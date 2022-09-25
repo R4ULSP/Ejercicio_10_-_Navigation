@@ -47,6 +47,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //user = getIntent().getParcelableExtra(References.KEY_USER);
 
+        //TODO Gestionar la recepcion del usuario con safeArgs
 
         setupNavigation();
 
@@ -59,9 +60,6 @@ public class HomeActivity extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration);
     }
-
-    //TODO mover a un fragment con el viewPager2
-
 
 
     @Override

@@ -18,8 +18,6 @@ A
 gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
 ;
 gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
-X
-(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 ‡
@@ -32,10 +30,6 @@ eapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/adapter/
 Napp/src/main/java/es/travelworld/ejercicio10_navigation/domain/References.java,8\e\8e556f5a1d695d4b0d870231d8ecbc08888b2d00
 x
 Happ/src/main/java/es/travelworld/ejercicio10_navigation/domain/User.java,c\b\cb197f4454c1f5b038b121ca3062c2c53398d829
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 ‰
 Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MatchFragment.java,3\6\369229bbc0e1b0eec51262652c12bbfbb7aaacb4
 Œ
