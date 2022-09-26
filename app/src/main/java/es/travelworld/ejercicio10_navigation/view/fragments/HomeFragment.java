@@ -19,8 +19,8 @@ import es.travelworld.ejercicio10_navigation.domain.References;
 public class HomeFragment extends Fragment {
 
 
-    private FragmentHomeBinding binding;
     private User user;
+    private FragmentHomeBinding binding;
 
     public HomeFragment() {
         // Required empty public constructor

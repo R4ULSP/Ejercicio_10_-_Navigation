@@ -38,3 +38,11 @@ Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MatchFra
 Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/LoginFragment.java,d\a\dab398fb89f03c66b624bd43786f6a034ff12400
 Œ
 \app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/RegisterFragment.java,3\6\3686751fe832c04ea64622419abd85e011a6d4ba
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+ˆ
+Xapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MainFragment.java,4\e\4e91328146ade7b2a0f2cc6e8d4473301d5568dc
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
