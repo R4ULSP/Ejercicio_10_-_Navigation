@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity implements MatchFragment.On
 
     @Override
     public void loginButton(User user, String code) {
+        //TODO Posible safeArgs al HomeActivity: comunicacion entre ellos
         if (code.equals(References.LOGIN_SUCCESSFUL)) {
             Intent intent = new Intent(this, HomeActivity.class);
             intent.putExtra(References.KEY_USER, user);

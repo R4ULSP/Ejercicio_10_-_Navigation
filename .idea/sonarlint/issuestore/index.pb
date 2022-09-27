@@ -34,8 +34,6 @@ Happ/src/main/java/es/travelworld/ejercicio10_navigation/domain/User.java,c\b\c
 Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MatchFragment.java,3\6\369229bbc0e1b0eec51262652c12bbfbb7aaacb4
 Œ
 \app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/RoommateFragment.java,e\c\eccb663eae3b93d10cc71cf6205e26f2c73b99ce
-‰
-Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/LoginFragment.java,d\a\dab398fb89f03c66b624bd43786f6a034ff12400
 Œ
 \app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/RegisterFragment.java,3\6\3686751fe832c04ea64622419abd85e011a6d4ba
 X
@@ -46,3 +44,5 @@ X
 Xapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MainFragment.java,4\e\4e91328146ade7b2a0f2cc6e8d4473301d5568dc
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e

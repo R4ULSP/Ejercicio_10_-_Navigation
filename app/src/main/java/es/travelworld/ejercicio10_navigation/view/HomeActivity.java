@@ -84,6 +84,7 @@ public class HomeActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    //TODO: Gestionar BackStack
     @Override
     public void onBackPressed() {
         super.onBackPressed();

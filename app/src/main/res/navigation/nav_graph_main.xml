@@ -5,6 +5,8 @@
     android:id="@+id/nav_graph_main"
     app:startDestination="@id/mainFragment">
 
+    <!-- TODO Hacer transicion de entrada -->
+
     <fragment
         android:id="@+id/mainFragment"
         android:name="es.travelworld.ejercicio10_navigation.view.fragments.MainFragment"
