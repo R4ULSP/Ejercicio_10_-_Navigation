@@ -6,33 +6,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
-
-import java.util.Objects;
 
 import com.travelworld.ejercicio10_navigation.R;
 import com.travelworld.ejercicio10_navigation.databinding.ActivityHomeBinding;
 
+import java.util.Objects;
+
 import es.travelworld.ejercicio10_navigation.domain.User;
-import es.travelworld.ejercicio10_navigation.view.fragments.CarFragment;
-import es.travelworld.ejercicio10_navigation.view.fragments.HomeFragment;
-import es.travelworld.ejercicio10_navigation.view.fragments.PositionFragment;
 import es.travelworld.ejercicio10_navigation.view.fragments.WipFragment;
 import es.travelworld.ejercicio10_navigation.domain.References;
 
@@ -40,7 +29,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
     private User user;
-    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +51,9 @@ public class HomeActivity extends AppCompatActivity {
     private void setupNavigation() {
         setSupportActionBar(binding.toolbar);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(binding.mainFragmentFrame.getId());
-        navController = navHostFragment.getNavController();
+        NavController navController = Objects.requireNonNull(navHostFragment).getNavController();
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration);
+        NavigationUI.setupActionBarWithNavController(this, navController,appBarConfiguration);
     }
 
 

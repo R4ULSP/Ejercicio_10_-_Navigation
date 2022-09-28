@@ -23,8 +23,6 @@ import es.travelworld.ejercicio10_navigation.view.fragments.adapter.CarListAdapt
 
 public class CarFragment extends Fragment {
 
-    private FragmentCarBinding binding;
-
     public CarFragment() {
         // Required empty public constructor
     }
@@ -34,14 +32,9 @@ public class CarFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentCarBinding.inflate(inflater, container, false);
+        FragmentCarBinding binding = FragmentCarBinding.inflate(inflater, container, false);
 
         setUpRecycler(binding);
 

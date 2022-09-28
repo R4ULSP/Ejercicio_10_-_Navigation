@@ -17,7 +17,6 @@ import es.travelworld.ejercicio10_navigation.domain.References;
 public class PositionFragment extends Fragment {
 
     private int position;
-    private FragmentPositionBinding binding;
 
     public static PositionFragment newInstance(int position) {
         PositionFragment positionFragment = new PositionFragment();
@@ -42,7 +41,7 @@ public class PositionFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentPositionBinding.inflate(inflater, container, false);
+        com.travelworld.ejercicio10_navigation.databinding.FragmentPositionBinding binding = FragmentPositionBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
         position = position + 1;

@@ -37,7 +37,7 @@ public class MainFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         binding = FragmentMainBinding.inflate(inflater,container,false);
@@ -153,11 +153,11 @@ public class MainFragment extends Fragment {
     }
 
     private void setIconColorWhite(AppCompatImageView imageView) {
-        imageView.setColorFilter(ContextCompat.getColor(getContext(), R.color.white));
+        imageView.setColorFilter(ContextCompat.getColor(requireContext(), R.color.white));
     }
 
     private void setIconColorBlack(AppCompatImageView imageView) {
-        imageView.setColorFilter(ContextCompat.getColor(getContext(), R.color.black));
+        imageView.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black));
     }
 
     private class MainFragmentFragmentStateAdapter extends FragmentStateAdapter {
