@@ -18,8 +18,7 @@
         app:title="@string/home_title"
         app:titleTextColor="@color/white"/>
 
-    <!--TODO Cambiar por FragmentContainerView-->
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_fragment_frame"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"

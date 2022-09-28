@@ -1,8 +1,6 @@
 
 Ž
 ^app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/LoginErrorFragment.java,b\a\baffb7a0494764f150752ded79c3fc0c420ff3b3
-Œ
-\app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/PositionFragment.java,9\d\9d9de78be77d53ef528fc6c995c97a14382dfd05
 ‡
 Wapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/WipFragment.java,6\1\61b556ba5c29433ed3024d64f23e59045ebb5797
 {
@@ -30,8 +28,6 @@ eapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/adapter/
 Napp/src/main/java/es/travelworld/ejercicio10_navigation/domain/References.java,8\e\8e556f5a1d695d4b0d870231d8ecbc08888b2d00
 x
 Happ/src/main/java/es/travelworld/ejercicio10_navigation/domain/User.java,c\b\cb197f4454c1f5b038b121ca3062c2c53398d829
-‰
-Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MatchFragment.java,3\6\369229bbc0e1b0eec51262652c12bbfbb7aaacb4
 Œ
 \app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/RoommateFragment.java,e\c\eccb663eae3b93d10cc71cf6205e26f2c73b99ce
 Œ
@@ -44,5 +40,11 @@ X
 Xapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MainFragment.java,4\e\4e91328146ade7b2a0f2cc6e8d4473301d5568dc
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+Ž
+^app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/OnBoardingFragment.java,2\b\2bca6b43e26ebd86b1067632274aad4f04d331a6
+ˆ
+Xapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/HomeFragment.java,6\0\604328e4904aa57b9fbee62ba365268cbaf3a34a
+‰
+Yapp/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/MatchFragment.java,3\6\369229bbc0e1b0eec51262652c12bbfbb7aaacb4
+Œ
+\app/src/main/java/es/travelworld/ejercicio10_navigation/view/fragments/PositionFragment.java,9\d\9d9de78be77d53ef528fc6c995c97a14382dfd05
