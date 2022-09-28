@@ -5,6 +5,7 @@ import static es.travelworld.ejercicio10_navigation.domain.References.PRUEBAS;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.travelworld.ejercicio10_navigation.R;
@@ -23,10 +26,12 @@ import com.travelworld.ejercicio10_navigation.databinding.FragmentMainBinding;
 import java.util.Objects;
 
 import es.travelworld.ejercicio10_navigation.domain.References;
+import es.travelworld.ejercicio10_navigation.domain.User;
 
 public class MainFragment extends Fragment {
 
     private FragmentMainBinding binding;
+    private User user;
 
     public MainFragment() {
         // Required empty public constructor
@@ -37,10 +42,25 @@ public class MainFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        user = MainFragmentArgs.fromBundle(requireArguments()).getLoginUser();
+        if(user != null){
+            Log.d(PRUEBAS,user.getName());
+        }else{
+            Log.d(PRUEBAS,"Nulo");
+        }
+    }
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         binding = FragmentMainBinding.inflate(inflater,container,false);
+
+        if(user != null){
+            Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
+        }
 
         setUpTabs();
 
@@ -193,14 +213,10 @@ public class MainFragment extends Fragment {
         private Fragment startHomeFragment() {
             HomeFragment fragment = (HomeFragment) getParentFragmentManager().findFragmentByTag(References.HOME_FRAGMENT);
 
-            Log.d(PRUEBAS,"Estoy en la posición ");
-
             if (fragment != null) {
-                Log.d(PRUEBAS,"Nulo ");
 
                 return fragment;
             } else {
-                Log.d(PRUEBAS,"Devuelvo ");
                 return HomeFragment.newInstance();
             }
         }

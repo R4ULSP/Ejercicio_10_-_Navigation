@@ -1,18 +1,16 @@
 package es.travelworld.ejercicio10_navigation.view.fragments;
 
-import static es.travelworld.ejercicio10_navigation.domain.References.PRUEBAS;
-
-import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -24,17 +22,11 @@ import com.travelworld.ejercicio10_navigation.R;
 import com.travelworld.ejercicio10_navigation.databinding.FragmentLoginBinding;
 
 import es.travelworld.ejercicio10_navigation.domain.User;
-import es.travelworld.ejercicio10_navigation.domain.References;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private FragmentLoginBinding binding;
     private User user;
-    private OnClickItemLoginFragment listener;
-
-    public interface OnClickItemLoginFragment {
-        void loginButton(User user, String code);
-    }
 
     public LoginFragment() {
         // Required empty public constructor
@@ -60,7 +52,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         View view = binding.getRoot();
 
         if(user != null){
-            Log.i(PRUEBAS, user.toString());
             Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
         }
 
@@ -138,9 +129,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void login() {
         if (user != null && Objects.requireNonNull(binding.loginInputPassword.getText()).toString().equals(user.getPassword()) && Objects.requireNonNull(binding.loginInputUser.getText()).toString().equals(user.getName())) {
-            listener.loginButton(user, References.LOGIN_SUCCESSFUL);
+            LoginFragmentDirections.ToHomeActivity directions = LoginFragmentDirections.toHomeActivity().setLoginUser(user);
+            Navigation.findNavController(requireView()).navigate(directions);
         } else {
-            listener.loginButton(user, References.LOGIN_ERROR);
+            FragmentManager fragmentManager = getParentFragmentManager();
+            LoginErrorFragment loginErrorFragment = LoginErrorFragment.newInstance();
+            loginErrorFragment.show(fragmentManager, null);
         }
     }
 
@@ -149,22 +143,5 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-
-    /**
-     * Inicializa el listener con el contexto recibido
-     */
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof OnClickItemLoginFragment) {
-            listener = (OnClickItemLoginFragment) context;
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
     }
 }

@@ -65,6 +65,13 @@ public class User implements Parcelable {
     public User() {
     }
 
+    public User(String name, String lastname, String ageGroup, String password) {
+        this.name = name;
+        this.lastname = lastname;
+        this.ageGroup = ageGroup;
+        this.password = password;
+    }
+
     protected User(Parcel in) {
         this.name = in.readString();
         this.lastname = in.readString();

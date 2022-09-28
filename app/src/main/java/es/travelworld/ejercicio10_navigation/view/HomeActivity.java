@@ -1,5 +1,6 @@
 package es.travelworld.ejercicio10_navigation.view;
 
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,22 +14,18 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 
 import com.travelworld.ejercicio10_navigation.R;
 import com.travelworld.ejercicio10_navigation.databinding.ActivityHomeBinding;
 
 import java.util.Objects;
 
-import es.travelworld.ejercicio10_navigation.domain.User;
 import es.travelworld.ejercicio10_navigation.view.fragments.WipFragment;
-import es.travelworld.ejercicio10_navigation.domain.References;
 
 public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
-    private User user;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,24 +33,20 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        user = getIntent().getParcelableExtra(References.KEY_USER);
-
-        Snackbar.make(binding.getRoot(), "Nombre: " + user.getName() + "  Apellidos: " + user.getLastname() + "  Edad:" + user.getAgeGroup(), BaseTransientBottomBar.LENGTH_LONG).show();
-
-
-        //TODO Gestionar la recepcion del usuario con safeArgs
-
-        setupNavigation();
-
+        setupNavigation(getIntent().getExtras());
 
     }
 
-    private void setupNavigation() {
+    private void setupNavigation(Bundle bundle) {
         setSupportActionBar(binding.toolbar);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(binding.mainFragmentFrame.getId());
-        NavController navController = Objects.requireNonNull(navHostFragment).getNavController();
+        navController = Objects.requireNonNull(navHostFragment).getNavController();
+
+        navController.setGraph(R.navigation.nav_graph_main,bundle);
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController,appBarConfiguration);
+
     }
 
 
@@ -79,14 +72,14 @@ public class HomeActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    //TODO: Gestionar BackStack
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.putExtra(References.KEY_USER, user);
-        startActivity(intent);
-        finish();
+        int currentFragment = Objects.requireNonNull(navController.getCurrentDestination()).getId();
+
+        if (currentFragment == R.id.mainFragment) {
+            navController.navigate(R.id.to_loginActivity_from_mainFragment);
+            finish();
+        }
     }
 
 
